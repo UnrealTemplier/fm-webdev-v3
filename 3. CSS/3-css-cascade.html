@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cascade</title>
+</head>
+
+<body>
+    <style>
+        h1 {
+            color: red;
+        }
+
+        .brand-1 {
+            color: blue;
+        }
+
+        h1.brand-2 {
+            color: green;
+        }
+
+        .title-1 {
+            border: 3px solid red;
+        }
+
+        .title-2 {
+            border: 3px solid blue;
+        }
+
+        .title-1.title-2 {
+            border: 3px solid green;
+        }
+
+        div {
+            margin: 10px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            float: left;
+            display: flex;
+            justify-content: center;
+            background-color: darkgreen;
+        }
+
+        #special {
+            background-color: black;
+        }
+
+        .div-1.div-2.div-3 {
+            background-color: red;
+        }
+
+        .div-4 {
+            background-color: darkmagenta !important;
+        }
+    </style>
+
+    <h1>This is plain H1</h1>
+    <h1 class="brand-1">This is H1 with brand-1 class (style .brand-1)</h1>
+    <h1 class="brand-2">This is H1 with brand-2 class (style h1.brand-2)</h1>
+
+    <p class="title-1">This is P with title-1 class (style .title-1)</p>
+    <p class="title-2">This is P with title-2 class (style .title-2)</p>
+    <p class="title-1 title-2">This is P with title1 title-2 classes (style .title-1.title-2)</p>
+
+    <div>Empty DIV without classes or IDs</div>
+    <div class="div-1 div-2 div-3">.div-1.div-2.div-3</div>
+    <div id="special" class="div-1 div-2 div-3">.div-1.div-2.div-3 with id</div>
+    <div id="special" class="div-4">!important .div-4 with id</div>
+</body>
+
+</html>
