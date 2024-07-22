@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+
+        .box:hover {
+            background-color: black;
+        }
+
+        .list-item {
+            font-weight: bold;
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            color: black;
+        }
+
+        .list-item:last-child {
+            text-decoration: underline;
+        }
+
+        .list-item:first-child {
+            text-decoration: overline;
+            color: brown;
+        }
+    </style>
+
+    <div class="box">This is a BOX! Hover over it!</div>
+
+    <div>This is a list</div>
+    <ul>
+        <li class="list-item">Item</li>
+        <li class="list-item">Item</li>
+        <li class="list-item">Item</li>
+    </ul>
+</body>
+
+</html>
