@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<style>
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .ease-out {
+        animation-timing-function: ease-out;
+    }
+
+    html {
+        background-color: black;
+    }
+
+    .spinny-boy {
+        font-size: 40px;
+        display: inline-block;
+        animation: spin 1s infinite;
+    }
+</style>
+
+<div class="spinny-boy ease-out">🤢</div>
+</body>
+
+</html>
