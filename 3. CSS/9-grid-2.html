@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html {
+            color: white;
+            font-weight: bold;
+        }
+
+        .page-header {
+            grid-area: header;
+            background-color: red;
+            padding: 10px;
+        }
+
+        .page-body {
+            grid-area: body;
+            background-color: blue;
+            padding: 10px;
+        }
+
+        .page-sidebar {
+            grid-area: sidebar;
+            background-color: black;
+            padding: 10px;
+        }
+
+        .page-footer {
+            grid-area: footer;
+            background-color: brown;
+            padding: 10px;
+        }
+
+        .page {
+            display: grid;
+            grid-template-areas:
+                "header header header sidebar"
+                "body body . sidebar"
+                "footer footer footer footer";
+        }
+    </style>
+
+    <div class="page">
+        <header class="page-header">Header</header>
+        <div class="page-body">Body</div>
+        <div class="page-sidebar">Sidebar</div>
+        <footer class="page-footer">Footer</footer>
+    </div>
+</body>
+
+</html>
