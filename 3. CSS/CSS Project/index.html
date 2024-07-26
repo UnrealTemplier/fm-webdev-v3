@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Coffee Masters</title>
+</head>
+
+<body>
+    <div class="page">
+
+        <header class="header">
+            <img class="logo" src="./coffee_masters_logo.png" alt="Coffee Masters logo" />
+            <h1 class="brand">Coffee Masters</h1>
+        </header>
+
+        <div class="cart">
+            <div class="cart-title">ITEMS</div>
+
+            <ul class="cart-items">
+                <li class="cart-item">
+                    <p class="cart-item-amount">1x</p>
+                    <div class="cart-item-slot">
+                        <p class="cart-item-name">Cappucino</p>
+                        <p class="cart-item-option">Light Foam</p>
+                    </div>
+                    <p class="cart-item-price">$6.00</p>
+                </li>
+                <li class="cart-item">
+                    <p class="cart-item-amount">1x</p>
+                    <div class="cart-item-slot">
+                        <p class="cart-item-name">Cappucino</p>
+                        <p class="cart-item-option">Almond Milk</p>
+                        <p class="cart-item-option">Double Espresso Shot</p>
+                    </div>
+                    <p class="cart-item-price">$7.90</p>
+                </li>
+                <li class="cart-item">
+                    <p class="cart-item-amount">1x</p>
+                    <div class="cart-item-slot">
+                        <p class="cart-item-name">Croissant</p>
+                        <p class="cart-item-option"></p>
+                    </div>
+                    <p class="cart-item-price">$5.37</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="order-name">
+            <div class="order-name-title">NAME</div>
+
+            <div class="input-group">
+                <label for="order-name-input" class="input-label">Name for order</label>
+                <input id="order-name-input" class="text-input" placeholder="" />
+            </div>
+        </div>
+
+        <div class="payment-info">
+            <div class="payment-info-title">PAYMENT</div>
+
+            <div class="input-group">
+                <label for="card-number-input" class="input-label">Card number</label>
+                <input id="card-number-input" class="text-input" placeholder="" />
+            </div>
+
+            <div class="input-group">
+                <label for="ccv-input" class="input-label">CCV number</label>
+                <input id="ccv-input" class="text-input" placeholder="" />
+            </div>
+        </div>
+
+        <div class="total-labels">
+            <p class="subtotal-label">Subtotal:</p>
+            <p class="tax-label">Tax:</p>
+            <p class="total-label">Total:</p>
+        </div>
+
+        <div class="total-sums">
+            <p class="subtotal-sum">$19.27</p>
+            <p class="tax-sum">$0.96</p>
+            <p class="total-sum">$20.23</p>
+        </div>
+
+        <div class="place-order-button">Place order</div>
+    </div>
+</body>
+
+</html>

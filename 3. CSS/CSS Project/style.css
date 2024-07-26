@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #efefef;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #43281c;
+    height: 70px;
+}
+
+.logo {
+    max-width: 27px;
+    margin: 5px;
+}
+
+.brand {
+    color: #fbf2c0;
+    font-size: 24px;
+}
+
+.cart {
+    grid-area: cart;
+    background-color: #eee1d5;
+    margin: 30px 15px 45px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0,0,0,0.2);
+    padding: 30px 15px 30px 15px;
+}
+
+.order-name {
+    grid-area: order-name;
+    background-color: #eee1d5;
+    margin: 30px 30px 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0,0,0,0.2);
+    padding: 30px 15px 30px 15px;
+}
+
+.payment-info {
+    grid-area: payment-info;
+    background-color: #eee1d5;
+    margin: 10px 30px 45px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0,0,0,0.2);
+    padding: 30px 15px 30px 15px;
+}
+
+.total-labels {
+    grid-area: total-labels;
+    margin: 0 0 0 30px;
+    padding-left: 80%;
+    padding-right: 20%;
+    text-align: left;
+}
+
+.total-sums {
+    grid-area: total-sums;
+    margin: 0 30px 0 0;
+    padding-right: 80%;
+    text-align: right;
+}
+
+.place-order-button {
+    grid-area: place-order;
+    background-color: #deb993;
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px;
+    margin: 30px;
+}
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "header header"
+        "cart order-name"
+        "cart payment-info"
+        "total-labels total-sums"
+        "place-order place-order";
+    margin: 0;
+}
+
+.cart-title {
+    color: #885a2d;
+}
+
+.order-name-title {
+    color: #885a2d;
+}
+
+.payment-info-title {
+    color: #885a2d;
+}
+
+.input-group {
+    display: inline-block;
+    position: relative;
+}
+
+.text-input {
+    background-color: #eee1d5;
+    border-color: #885a2d;
+    border-radius: 30px;
+    height: 40px;
+}
+
+.input-label {
+    position: absolute;
+    background-color: #eee1d5;
+    color: #885a2d;
+    padding: 0 2px;
+    font-size: 11px;
+    left: 20px;
+    top: -7px;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    border-bottom: 2px solid #DDB892;
+}
+
+.cart-item:last-of-type {
+    border-bottom: 0;
+}
+
+.total-label,
+.total-sum {
+    font-weight: bold;
+}
