@@ -42,7 +42,7 @@
                     <p class="cart-item-amount">1x</p>
                     <div class="cart-item-slot">
                         <p class="cart-item-name">Croissant</p>
-                        <p class="cart-item-option"></p>
+                        <p class="cart-item-option">Butter</p>
                     </div>
                     <p class="cart-item-price">$5.37</p>
                 </li>
@@ -52,7 +52,7 @@
         <div class="order-name">
             <div class="order-name-title">NAME</div>
 
-            <div class="input-group">
+            <div class="input-group order-name-input-group">
                 <label for="order-name-input" class="input-label">Name for order</label>
                 <input id="order-name-input" class="text-input" placeholder="" />
             </div>
@@ -61,27 +61,29 @@
         <div class="payment-info">
             <div class="payment-info-title">PAYMENT</div>
 
-            <div class="input-group">
+            <div class="input-group card-number-input-group">
                 <label for="card-number-input" class="input-label">Card number</label>
                 <input id="card-number-input" class="text-input" placeholder="" />
             </div>
 
-            <div class="input-group">
+            <div class="input-group ccv-input-group">
                 <label for="ccv-input" class="input-label">CCV number</label>
                 <input id="ccv-input" class="text-input" placeholder="" />
             </div>
         </div>
 
-        <div class="total-labels">
-            <p class="subtotal-label">Subtotal:</p>
-            <p class="tax-label">Tax:</p>
-            <p class="total-label">Total:</p>
-        </div>
+        <div class="total-section">
+            <div class="total-labels">
+                <p class="subtotal-label">Subtotal:</p>
+                <p class="tax-label">Tax:</p>
+                <p class="total-label">Total:</p>
+            </div>
 
-        <div class="total-sums">
-            <p class="subtotal-sum">$19.27</p>
-            <p class="tax-sum">$0.96</p>
-            <p class="total-sum">$20.23</p>
+            <div class="total-sums">
+                <p class="subtotal-sum">$19.27</p>
+                <p class="tax-sum">$0.96</p>
+                <p class="total-sum">$20.23</p>
+            </div>
         </div>
 
         <div class="place-order-button">Place order</div>
