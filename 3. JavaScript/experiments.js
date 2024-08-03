@@ -1,22 +1,24 @@
-const skyIsBlue = true;
-if (skyIsBlue) {
-    console.log("Sky is blue!");
-} else {
-    console.log("Sky is not blue?");
+let friendsAtYourParty = 0;
+while (friendsAtYourParty < 10) {
+    console.log("A friend is coming to the party.");
+    friendsAtYourParty = friendsAtYourParty + 1;
 }
+console.log(`friendsAtYourParty = ${friendsAtYourParty}`);
 
-let doubleEqual = (2 + 2) == "4";
-let tripleEqual = (2 + 2) === "4";
-console.log(`doubleEqual = ${doubleEqual}`);
-console.log(`tripleEqual = ${tripleEqual}`);
+console.log("");
 
-const friendsAtParty = 10;
-if (friendsAtParty < 0) {
-    console.log(`Wrong friends number!`);
-} else if (friendsAtParty === 0) {
-    console.log(`Nobody at the party.`);
-} else if (friendsAtParty <= 4) {
-    console.log(`We can play Mario Kart!`);
-} else {
-    console.log(`Let's dance!`);
+let a = 0;
+for (let i = 0; i < 100; i++) {
+    a++;
 }
+console.log(`a = ${a}`);
+
+console.log("");
+
+const character = '🐶';
+const timesToRepeat = 10;
+let str = "";
+for (let i = 0; i < timesToRepeat; i++) {
+    str += character;
+}
+console.log(str);
