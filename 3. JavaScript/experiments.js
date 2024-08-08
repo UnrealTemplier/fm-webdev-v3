@@ -1,23 +1,60 @@
-function addTwo(number) {
-    return number + 2;
-}
-console.log(addTwo(5));
-console.log(addTwo(10));
+const person = {
+    name: 'John Smith',
+    age: 15,
+    city: 'Lawrence',
+    state: 'Kansas',
+    country: 'USA',
+};
 
-console.log("");
+console.log(person);
+console.log(person.name);
+console.log(person['age']);
 
-const meow = function() {
-    return "meow!";
-}
+const person1 = {
+    name: {
+        first: 'Alex',
+        last: 'Smith',
+    },
+    age: '15-25',
+    location: {
+        city: 'Wichita',
+        state: 'Kansas',
+        country: 'USA',
+    }
+};
 
-const woof = () => {
-    return "woof!";
-}
+const person2 = {
+    name: {
+        first: 'James',
+        last: 'Smith',
+    },
+    age: '25-35',
+    location: {
+        city: 'Wichita',
+        state: 'Kansas',
+        country: 'USA',
+    }
+};
 
-console.log(meow);
-console.log(woof);
+function whatAge(person) {
+    if (person.age === '25-35') {
+        console.log(`${person.name.first} is in his prime!`);
+    } else if (person.age === '15-25') {
+        console.log(`${person.name.first} is very young!`);
+    } else {
+        console.log(`${person.name.first} is a child or an oldman`);
+    }
+};
 
-console.log("");
+console.log(whatAge(person1));
+console.log(whatAge(person2));
 
-console.log(meow());
-console.log(woof());
+const dog = {
+    type: 'dog',
+    name: 'William',
+    speak() {
+        console.log('woof woof');
+    },
+};
+
+dog.speak();
