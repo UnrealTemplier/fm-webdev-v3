@@ -1,60 +1,32 @@
-const person = {
-    name: 'John Smith',
-    age: 15,
-    city: 'Lawrence',
-    state: 'Kansas',
-    country: 'USA',
-};
-
-console.log(person);
-console.log(person.name);
-console.log(person['age']);
-
-const person1 = {
+const me = {
     name: {
-        first: 'Alex',
-        last: 'Smith',
+        first: "Unreal",
+        last: "Templier",
     },
-    age: '15-25',
     location: {
-        city: 'Wichita',
-        state: 'Kansas',
-        country: 'USA',
-    }
-};
-
-const person2 = {
-    name: {
-        first: 'James',
-        last: 'Smith',
+        streetNumber: 500,
+        street: "Fakestreet",
+        city: "Seattle",
+        state: "WA",
+        zipCode: 55555,
+        country: "USA",
     },
-    age: '25-35',
-    location: {
-        city: 'Wichita',
-        state: 'Kansas',
-        country: 'USA',
-    }
-};
-
-function whatAge(person) {
-    if (person.age === '25-35') {
-        console.log(`${person.name.first} is in his prime!`);
-    } else if (person.age === '15-25') {
-        console.log(`${person.name.first} is very young!`);
-    } else {
-        console.log(`${person.name.first} is a child or an oldman`);
-    }
-};
-
-console.log(whatAge(person1));
-console.log(whatAge(person2));
-
-const dog = {
-    type: 'dog',
-    name: 'William',
-    speak() {
-        console.log('woof woof');
+    getAddress() {
+        return `${this.name.first} ${this.name.last}
+${this.location.streetNumber} ${this.location.street}
+${this.location.city}, ${this.location.state} ${this.location.zipCode}
+${this.location.country}`;
+    },
+    getThis() {
+        return this;
     },
 };
 
-dog.speak();
+console.log(me.getAddress());
+console.log("");
+console.log("Local this:");
+console.log(me.getThis());
+console.log("");
+console.log("Global this:");
+console.log(this);
+
