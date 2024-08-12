@@ -1,42 +1,16 @@
-const daysOfWeek = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-];
+const body = document.querySelector("body");
+body.style.backgroundColor = "black";
+body.style.color = "white";
 
-console.log(daysOfWeek);
-console.log(daysOfWeek[2]);
-console.log(daysOfWeek.length);
-console.log(daysOfWeek.join(" | "));
+const square = document.querySelector(".red-square");
+square.style.backgroundColor = "blue";
+square.style.width = "200px";
+square.style.border = "1px solid white";
+square.style.borderRadius = "5px";
+square.innerHTML = "Changed by JS!";
+square.style.color = "white";
 
-console.log("");
-
-const capitals = [
-    {country: "Russia", capital: "Moscow"},
-    {country: "France", capital: "Paris"},
-    {country: "China", capital: "Beijing"},
-];
-
-for (let i = 0; i < capitals.length; i++) {
-    console.log(capitals[i]);
-}
-console.log("");
-
-capitals.push({country: "Belarus", capital: "Minsk"});
-
-for (let i = 0; i < capitals.length; i++) {
-    console.log(capitals[i]);
-}
-console.log("");
-
-capitals[1].country = "Iran";
-capitals[1].capital = "Tehran";
-
-capitals.forEach(function(capital) {
-    console.log(capital);
+const listItems = document.querySelectorAll(".js-target");
+listItems.forEach(function(item) {
+    item.innerHTML = "<em>Changed by JS!</em>";
 });
-console.log("");
