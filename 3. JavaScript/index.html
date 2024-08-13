@@ -14,21 +14,43 @@
             width: 100px;
             height: 100px;
         }
+
+        .color-box {
+            background-color: limegreen;
+            width: 100px;
+            height: 100px;
+        }
+
+        .divider {
+            height: 50px;
+        }
     </style>
 
-    <h1>The DOM!</h1>
+    <h1>Events and listeners!</h1>
+    <div class="divider"></div>
 
-    <div class="red-square"></div>
 
-    <ul>
-        <li class="js-target">Unchanged</li>
-        <li class="js-target">Unchanged</li>
-        <li>Won't change!</li>
-        <li class="js-target">Unchanged</li>
-        <li>Won't change!</li>
-        <li class="js-target">Unchanged</li>
-        <li>Won't change!</li>
-    </ul>
+    <button class="event-button">Click me!</button>
+    <div class="divider"></div>
+
+
+    <input class="event-input" placeholder="put text here">
+    <p class="event-paragraph">Nothing happened yet.</p>
+    <div class="divider"></div>
+
+
+    <div class="color-box"></div>
+    <input class="color-input" placeholder="Type a color here!" />
+    <div class="divider"></div>
+
+    
+    <div class="button-container">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+    </div>
 
     <script src="./experiments.js"></script>
 </body>
