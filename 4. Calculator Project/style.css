@@ -1,4 +1,121 @@
 html {
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.result {
+    grid-area: result;
+    background-color: black;
+    color: white;
+    font-size: 72px;
+    text-align: right;
+    align-content: center;
+}
+
+.btn {
+    border: 1px solid black;
+    background-color: #d8d9db;
+    color: black;
+    font-size: 36px;
+}
+
+.btn:hover {
+    background-color: #bbbbbc;
+}
+
+.btn:active {
+    background-color: #ababac;
+}
+
+.btn-right {
+    border: 1px solid black;
+    background-color: #df974c;
+    color: white;
+    font-size: 36px;
+}
+
+.btn-right:hover {
+    background-color: #cb8a45;
+}
+
+.btn-right:active {
+    background-color: #b97c3b;
+}
+
+.btn-clear {
+    grid-area: btnclear;
+}
+
+.btn-backspace {
+    grid-area: btnbackspace;
+}
+
+.btn-divide {
+    grid-area: btndivide;
+}
+
+.btn-7 {
+    grid-area: btn7;
+}
+
+.btn-8 {
+    grid-area: btn8;
+}
+
+.btn-9 {
+    grid-area: btn9;
+}
+
+.btn-4 {
+    grid-area: btn4;
+}
+
+.btn-5 {
+    grid-area: btn5;
+}
+
+.btn-6 {
+    grid-area: btn6;
+}
+
+.btn-1 {
+    grid-area: btn1;
+}
+
+.btn-2 {
+    grid-area: btn2;
+}
+
+.btn-3 {
+    grid-area: btn3;
+}
+
+.btn-0 {
+    grid-area: btn0;
+}
+
+.btn-equals {
+    grid-area: btnequals;
+}
+
+.container {
+    width: 400px;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas: 
+        "result     result      result          result"
+        "btnclear   btnclear    btnbackspace    btndivide"
+        "btn7       btn8        btn9            btnmultiply"
+        "btn4       btn5        btn6            btnminus"
+        "btn1       btn2        btn3            btnplus"
+        "btn0       btn0        btn0            btnequals";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
