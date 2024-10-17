@@ -12,7 +12,7 @@ async function getWordOfTheDay() {
     const API_URL = "https://words.dev-apis.com/word-of-the-day";
     const res = await fetch(API_URL);
     const resObj = await res.json();
-    return resObj.word;
+    return resObj.word.toUpperCase();
 }
 
 async function validateWord(word) {
@@ -31,12 +31,11 @@ function isLetter(key) {
 }
 
 function invalidWord() {
+    // TODO invalid word
     console.log("Invalid word!");
 }
 
 function checkGuess() {
-    console.log(`Current guess: ${currentGuess}`);
-
     checkWin();
 
     currentGuess = "";
@@ -46,6 +45,7 @@ function checkGuess() {
 function checkWin() {
     if (currentGuess === word) {
         isDone = true;
+        // TODO win
         console.log("You win!");
     }
 }
@@ -60,25 +60,31 @@ async function commit() {
     else
         invalidWord();
 
-    if (currentRow === ROUNDS) {
+    if (currentRow === ROUNDS && !isDone) {
         isDone = true;
+        // TODO lose
         console.log("You lose...");
     }
 }
 
 function backspace() {
+    letterBoxes[currentRow * ANSWER_LENGTH + currentGuess.length - 1].innerText = "";
     currentGuess = currentGuess.substring(0, currentGuess.length - 1);
 }
 
 function addLetter(letter) {
+    letter = letter.toUpperCase();
     if (currentGuess.length < ANSWER_LENGTH)
         currentGuess += letter;
     else
         currentGuess = currentGuess.substring(0, currentGuess.length - 1) + letter;
+
+    letterBoxes[currentRow * ANSWER_LENGTH + currentGuess.length - 1].innerText = letter;
 }
 
 function handleInput() {
     document.addEventListener("keydown", (event) => {
+        // TODO isLoading check
         if (isDone) {
             return;
         }
