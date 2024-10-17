@@ -1,11 +1,14 @@
 const ROUNDS = 6;
-const ANSWER_LENGTH = 5;
+const WORD_LENGTH = 5;
 
-const letterBoxes = document.querySelectorAll(".scoreboard-letter");
+const letters = document.querySelectorAll(".scoreboard-letter");
 
 let word = "";
-let currentGuess = "";
-let currentRow = 0;
+let wordParts = null;
+let wordMap = null;
+let guess = "";
+let guessParts = null;
+let row = 0;
 let isDone = false;
 
 async function getWordOfTheDay() {
@@ -30,9 +33,43 @@ function isLetter(key) {
     return /^[a-zA-Z]$/.test(key);
 }
 
+function makeMap(partsArray) {
+    const map = {};
+
+    for (let i = 0; i < partsArray.length; i++) {
+        const letter = partsArray[i];
+        if (map[letter])
+            map[letter]++;
+        else
+            map[letter] = 1;
+    }
+
+    return map;
+}
+
 function markCurrentRowInvalid(isInvalid) {
-    for (let i = 0; i < ANSWER_LENGTH; i++)
-        letterBoxes[currentRow * ANSWER_LENGTH + i].classList.toggle("invalid", isInvalid);
+    for (let i = 0; i < WORD_LENGTH; i++)
+        letters[row * WORD_LENGTH + i].classList.toggle("invalid", isInvalid);
+}
+
+function markCurrentGuessLetters() {
+    for (let i = 0; i < WORD_LENGTH; i++) {
+        if (guessParts[i] === wordParts[i]) {
+            letters[row * WORD_LENGTH + i].classList.add("correct");
+            wordMap[guessParts[i]]--;
+        }
+    }
+
+    for (let i = 0; i < WORD_LENGTH; i++) {
+        if (guessParts[i] === wordParts[i]) {
+            // do nothing, we already did it
+        } else if (word.includes(guessParts[i]) && wordMap[guessParts[i]] > 0) {
+            letters[row * WORD_LENGTH + i].classList.add("close");
+            wordMap[guessParts[i]]--;
+        } else {
+            letters[row * WORD_LENGTH + i].classList.add("wrong");
+        }
+    }
 }
 
 function invalidWord() {
@@ -40,49 +77,56 @@ function invalidWord() {
 }
 
 function checkGuess() {
+    guessParts = guess.split("");
+    wordMap = makeMap(wordParts);
+
+    markCurrentGuessLetters();
     checkWin();
 
-    currentGuess = "";
-    currentRow++;
+    guess = "";
+    row++;
 }
 
 function checkWin() {
-    if (currentGuess === word) {
+    if (guess === word) {
         isDone = true;
         alert("You win!");
     }
 }
 
 async function commit() {
-    if (currentGuess.length !== ANSWER_LENGTH)
+    if (guess.length !== WORD_LENGTH)
         return;
 
-    isWordValid = await validateWord(currentGuess);
+    isWordValid = await validateWord(guess);
     if (isWordValid)
         checkGuess();
     else
         invalidWord();
 
-    if (currentRow === ROUNDS && !isDone) {
+    if (row === ROUNDS && !isDone) {
         isDone = true;
         alert(`You lose... The word was ${word}`);
     }
 }
 
 function backspace() {
-    letterBoxes[currentRow * ANSWER_LENGTH + currentGuess.length - 1].innerText = "";
-    currentGuess = currentGuess.substring(0, currentGuess.length - 1);
+    if (guess.length <= 0)
+        return;
+
+    letters[row * WORD_LENGTH + guess.length - 1].innerText = "";
+    guess = guess.substring(0, guess.length - 1);
     markCurrentRowInvalid(false);
 }
 
 function addLetter(letter) {
     letter = letter.toUpperCase();
-    if (currentGuess.length < ANSWER_LENGTH)
-        currentGuess += letter;
+    if (guess.length < WORD_LENGTH)
+        guess += letter;
     else
-        currentGuess = currentGuess.substring(0, currentGuess.length - 1) + letter;
+        guess = guess.substring(0, guess.length - 1) + letter;
 
-    letterBoxes[currentRow * ANSWER_LENGTH + currentGuess.length - 1].innerText = letter;
+    letters[row * WORD_LENGTH + guess.length - 1].innerText = letter;
 }
 
 function handleInput() {
@@ -103,6 +147,7 @@ function handleInput() {
 
 async function init() {
     word = await getWordOfTheDay();
+    wordParts = word.split("");
     console.log(`Today's word: ${word}`);
 
     handleInput();
