@@ -30,9 +30,13 @@ function isLetter(key) {
     return /^[a-zA-Z]$/.test(key);
 }
 
+function markCurrentRowInvalid(isInvalid) {
+    for (let i = 0; i < ANSWER_LENGTH; i++)
+        letterBoxes[currentRow * ANSWER_LENGTH + i].classList.toggle("invalid", isInvalid);
+}
+
 function invalidWord() {
-    // TODO invalid word
-    console.log("Invalid word!");
+    markCurrentRowInvalid(true);
 }
 
 function checkGuess() {
@@ -45,8 +49,7 @@ function checkGuess() {
 function checkWin() {
     if (currentGuess === word) {
         isDone = true;
-        // TODO win
-        console.log("You win!");
+        alert("You win!");
     }
 }
 
@@ -62,14 +65,14 @@ async function commit() {
 
     if (currentRow === ROUNDS && !isDone) {
         isDone = true;
-        // TODO lose
-        console.log("You lose...");
+        alert(`You lose... The word was ${word}`);
     }
 }
 
 function backspace() {
     letterBoxes[currentRow * ANSWER_LENGTH + currentGuess.length - 1].innerText = "";
     currentGuess = currentGuess.substring(0, currentGuess.length - 1);
+    markCurrentRowInvalid(false);
 }
 
 function addLetter(letter) {
