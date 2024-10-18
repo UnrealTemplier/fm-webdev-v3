@@ -2,6 +2,7 @@ const ROUNDS = 6;
 const WORD_LENGTH = 5;
 
 const letters = document.querySelectorAll(".scoreboard-letter");
+const loading = document.querySelector(".loading");
 
 let word = "";
 let wordParts = null;
@@ -9,6 +10,7 @@ let wordMap = null;
 let guess = "";
 let guessParts = null;
 let row = 0;
+let isLoading = false;
 let isDone = false;
 
 async function getWordOfTheDay() {
@@ -98,7 +100,10 @@ async function commit() {
     if (guess.length !== WORD_LENGTH)
         return;
 
+    setLoading(true);
     isWordValid = await validateWord(guess);
+    setLoading(false);
+
     if (isWordValid)
         checkGuess();
     else
@@ -131,8 +136,7 @@ function addLetter(letter) {
 
 function handleInput() {
     document.addEventListener("keydown", (event) => {
-        // TODO isLoading check
-        if (isDone) {
+        if (isDone || isLoading) {
             return;
         }
 
@@ -145,10 +149,17 @@ function handleInput() {
     });
 }
 
+function setLoading(isEnabled) {
+    isLoading = isEnabled;
+    loading.classList.toggle("show", isEnabled);
+}
+
 async function init() {
+    setLoading(true);
     word = await getWordOfTheDay();
     wordParts = word.split("");
     console.log(`Today's word: ${word}`);
+    setLoading(false);
 
     handleInput();
 }
